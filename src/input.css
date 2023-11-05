@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+      font-family: "Josefin Sans", sans-serif;
+    }
+    .completed h5 {
+      text-decoration: line-through;
+  }
+  .bg-gradient {
+    background: linear-gradient(to bottom right, #57ddff, #c058f3);
+  }
+  }

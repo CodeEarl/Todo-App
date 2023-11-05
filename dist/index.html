@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+<title>Document</title>
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+<script src="https://kit.fontawesome.com/3d87762d96.js" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/3d87762d96.js" crossorigin="anonymous"></script>
+    
+</head>
+<body class="bg-vlg dark:bg-dvdb">
+    <section class="">
+        <div class="up flex justify-between pt-8 px-8 h-48 mx-auto md:gap-10 md:justify-between md:px-96 bg-[url('/Images/bg-mobile-light.jpg')] dark:bg-[url('/Images/bg-mobile-dark.jpg')] md:bg-[url('/Images/bg-desktop-light.jpg')] md:dark:bg-[url('/Images/bg-desktop-dark.jpg')] bg-no-repeat bg-cover">
+            <h1 class="text-white text-3xl">Todo</h1>
+
+            <button title="Toggle Theme" id="theme-toggle" type="button" class="text-white p-0 h-5">
+                <svg id="theme-toggle-dark-icon" class="hidden w-7" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                <svg id="theme-toggle-light-icon" class="hidden w-7" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            </button>
+        </div>
+
+        <div class="down px-8 w-full md:left-1/4 md:right-1/4 md:w-2/4 md:mr-10 md:ml-5 absolute top-24 rounded">
+            <form action="#">
+                <input type="text" name="text" id="text" class="w-full rounded bg-white dark:bg-dvdbb placeholder:text-gray-600 p-3 dark:text-white" placeholder="Create a new todo...">
+            </form>
+
+            <ul role="list" class="my-7 bg-white drop-shadow-xl dark:bg-dvdbb rounded" id="todo-list">
+                <li draggable="true" class="lis p-3 border-b border-gray-300 dark:border-gray-700 dark:text-gray-400 flex items-center justify-between">
+                    <div class="flex gap-3 text-sm items-center">
+                        <div class="bg cursor-pointer active:bg-gradient-to-br from-lg to-lg2 w-5 h-5 rounded-full p-3 border-2 border-gray-700">
+                            <span class="fa-solid dash"></span>
+                        </div>
+                        <h5 class="i ">Complete online JavaScript courses</h5>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
+                </li>
+                <li draggable="true" class="lis p-3 border-b border-gray-300 dark:border-gray-700 dark:text-gray-400 flex items-center justify-between">
+                    <div class="flex gap-3 text-sm items-center">
+                        <div class="bg cursor-pointer active:bg-gradient-to-br from-lg to-lg2 w-5 h-5 rounded-full p-3 border-2 border-gray-700 ">
+                            <span class="fa-solid dash"></span>
+                        </div>
+                        <h5 class="">Jog around the park 3x</h5>
+                         
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
+                </li>
+                <li draggable="true" class="lis p-3 border-b border-gray-300 dark:border-gray-700 dark:text-gray-400 flex items-center justify-between">
+                    <div class="flex gap-3 text-sm items-center">
+                        <div class="bg cursor-pointer active:bg-gradient-to-br from-lg to-lg2 w-5 h-5 rounded-full p-3 border-2 border-gray-700 ">
+                            <span class="fa-solid dash"></span>
+                        </div>
+                        <h5 class="">10 mins meditation</h5>
+                         
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
+                </li>
+                <li draggable="true" class="lis p-3 border-b border-gray-300 dark:border-gray-700 dark:text-gray-400 flex items-center justify-between">
+                    <div class="flex gap-3 text-sm items-center">
+                        <div class="bg cursor-pointer active:bg-gradient-to-br from-lg to-lg2 w-5 h-5 rounded-full p-3 border-2 border-gray-700 ">
+                            <span class="fa-solid dash"></span>
+                        </div>
+                        <h5 class="">Read for 1 hour</h5>
+                         
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
+                </li>
+                <li draggable="true" class="lis p-3 border-b border-gray-300 dark:border-gray-700 dark:text-gray-400 flex items-center justify-between">
+                    <div class="flex gap-3 text-sm items-center">
+                        <div class="bg cursor-pointer border-2 border-gray-700 w-5 h-5 rounded-full p-3 active:bg-gradient-to-br from-lg to-lg2 ">
+                            <span class="fa-solid dash"></span>
+                        </div>
+                        <h5 class="">Pick up groceries</h5>
+                         
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
+                </li>
+                <li draggable="true" class="lis p-3 border-b border-gray-300 dark:border-gray-700 dark:text-gray-400 flex items-center justify-between">
+                    <div class="flex gap-3 text-sm items-center">
+                        <div class="bg cursor-pointer active:bg-gradient-to-br from-lg to-lg2 w-5 h-5 rounded-full p-2 text-center border-2 border-gray-700 ">
+                            <span class="fa-solid dash"></span>
+                        </div>
+                        <h5 class="">Complete todo app</h5>
+                         
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
+                </li>
+                <li class="p-3 flex justify-between text-gray-500 text-sm">
+                    <p id="number">0 items left</p>
+                    <button id="clear-filter-button" type="button" class="hover:text-black dark:hover:text-white cursor-pointer">Clear completed</button>
+                </li>
+
+                <li class="p-4 md:justify-between text-gray-500 text-sm hidden md:flex" id="comment-box">
+                    <p>0 items left</p>
+                    <div class="flex gap-2">
+                        <button type="button" class="hover:text-black dark:hover:text-white cursor-pointer active:text-blue-600">All</button>
+                        <button type="button" class="hover:text-black dark:hover:text-white cursor-pointer active:text-blue-600">Active</button>
+                        <button type="button" class="hover:text-black dark:hover:text-white cursor-pointer active:text-blue-600">Completed</button>
+                    </div>
+                    <button type="button" class="hover:text-black dark:hover:text-white cursor-pointer clear-completed-button">Clear completed</button>
+                </li>
+                
+                
+
+            </ul>
+
+            <div class="flex md:hidden justify-between bg-white drop-shadow-xl dark:bg-dvdbb rounded p-4 text-gray-500">
+                <button type="button" class="hover:text-black dark:hover:text-white cursor-pointer active:text-blue-600 all-filter w-auto">All</button>
+                <button type="button" class="hover:text-black dark:hover:text-white cursor-pointer active:text-blue-600 active-filter w-auto">Active</button>
+                <button type="button" class="hover:text-black dark:hover:text-white cursor-pointer active:text-blue-600 completed-filter w-auto">Completed</button>
+            </div>
+
+            <footer class="text-center py-5">
+                <button type="button" class="text-sm text-gray-500">Drag and drop to reorder list</button>
+            </footer>
+        </div>
+
+    </section>
+    <script src="app.js"></script>
+
+</body>
+</html>
